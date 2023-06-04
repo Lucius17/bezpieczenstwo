@@ -49,6 +49,7 @@ def main():
             print("klucz musi być liczbą, spróbuj ponownie")
             main()
         if(user == "1"):
+            
             print(szyfrowanie(text,key))
         else:
             print(deszyfrowanie(text,key))

@@ -19,7 +19,7 @@ def	szyfrowanie(text,key):
 def	deszyfrowanie(text,key):
     return szyfrowanie(text, 26-key) #wiedząc, że alfabet ma 26 liter wystarczy, że podczas odszyfrowywania przesuniemy nasz klucz o 26 liter minus klucz wtedy otrzymamy odszyfrowaną wiadomość
 
-menu = ["wyjdź z programu","szyfrowanie","odszyfrowywanie"]
+menu = ["wyjdź z programu","szyfrowanie","odszyfrowywanie"] #opcje dostępne dla użytkownika
 
 def main():
     for index,option in enumerate(menu):
@@ -37,15 +37,21 @@ def main():
             print("klucz musi być liczbą, spróbuj ponownie")
             main()
         if(user == "1"):
+    # chr zwracana nam znak kiedy podamy mu jego numer w tablicy znaków ASCII
+	# ord zwraca nam numer w tablicy ASCII podanego znaku
+	# w tablicy ASCII a to 97 znak ponieważ ta tablica zwiera nie tylko litery, ale też inne znaki używane do interfejsów
+	# dlatego cofamy numer znaku o długość alfabetu i przesuwamy o wartość naszego klucza
+	# na koniec wiedząc, że alfabet (bez polskich znaków) ma 26 liter liczymy resztę z dzielenia oraz przesuwamy znowu do początku alfabetu i otrzymujemy zaszyfrowany znak
             print(szyfrowanie(text,key))
         else:
+             #wiedząc, że alfabet ma 26 liter wystarczy, że podczas odszyfrowywania przesuniemy nasz klucz o 26 liter minus klucz wtedy otrzymamy odszyfrowaną wiadomość
             print(deszyfrowanie(text,key))
     else:
         print("nie ma takiej opcji")
         main()
         
 
-if (__name__ == "__main__"):
+if (__name__ == "__main__"): #uruchamiamy główną fonckję
     while True:
         main()
             
